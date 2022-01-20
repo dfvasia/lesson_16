@@ -19,7 +19,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+class Course(db.Model):
+    __tablename__ = "course"
 
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    subject = db.Column(db.String(100))
+    price = db.Column(db.Integer)
+    weeks = db.Column(db.Float)
 # TODO определите модель здесь
 
 

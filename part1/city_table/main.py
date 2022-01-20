@@ -13,6 +13,7 @@ import prettytable
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -21,8 +22,12 @@ db = SQLAlchemy(app)
 
 class City(db.Model):
     __tablename__ = 'city'
-    # TODO определите поля модели здесь
 
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    country_ru = db.Column(db.String(100))
+    population = db.Column(db.Integer)
+    # TODO определите поля модели здесь
 
 # Не удаляйте код ниже, он нужен для корректного отображения
 # созданной вами модели при запуске файла
